@@ -100,6 +100,20 @@ public class second {
         }
 
     }
+    public static void N7(double x, double y){
+        if (x > 0 && y > 0){
+            System.out.println("1");
+        }
+        else if (x > 0 && y < 0){
+            System.out.println("4");
+        }
+        else if (x < 0 && y < 0){
+            System.out.println("3");
+        }
+        else if (x < 0 && y > 0){
+            System.out.println("2");
+        }
+    }
 
     public static void N24(int n, int m) {
         if (n - m == 0) {
@@ -113,13 +127,7 @@ public class second {
 
     public static void main(String[] args) {
         Locale.setDefault(Locale.ROOT);
-        N3(0, 0);
-        N3(0, 1);
-        N3(1, 1);
-        N3(0, -1);
-        N3(-1, -1);
-        N3(1, -1);
-        N3(-1, 1);
+
     }
 }
 
