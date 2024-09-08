@@ -58,34 +58,60 @@ public class second {
         double avg = ab + bc + ca - min - max;
 
         if (min + avg > max) {
-            String ang,name;
+            String ang, name;
             if (min == max && max == avg) {
                 name = "равносторонний";
             } else if ((min == avg && avg != max) || (max == avg && avg != min)) {
                 name = "равнобедренный";
-            }
-            else{
+            } else {
                 name = "разносторонний";
             }
             //System.out.println(Math.sqrt(min*min+avg*avg)+ " "+ max*max);
-            if (ang_bc_ac > 90 || ang_ca_ab > 90 || ang_ab_bc > 90){
+            if (ang_bc_ac > 90 || ang_ca_ab > 90 || ang_ab_bc > 90) {
                 ang = "тупоугольный";
-            }
-            else if (Math.sqrt(min*min+avg*avg) == max){
+            } else if (Math.sqrt(min * min + avg * avg) == max) {
                 ang = "прямоугольный";
-            }
-            else {
+            } else {
                 ang = "остроугольный";
             }
-            System.out.printf("Треугольник - %s, %s.",name,ang);
+            System.out.printf("Треугольник - %s, %s.", name, ang);
         } else {
             System.out.printf("Такой треугольник невозможен%n");
         }
     }
 
+    public static void N6(double x1, double y1, double x2, double y2, double x3, double y3) {
+        double bc = Math.sqrt(Math.pow(x2 - x3, 2) + Math.pow(y2 - y3, 2));//a
+        double ca = Math.sqrt(Math.pow(x3 - x1, 2) + Math.pow(y3 - y1, 2));//b
+        double ab = Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));//c
+        double Xx1, Yy1, Xx2, Yy2;
+        //(Math.sqrt(bc * bc + ab * ab) == ca) || (Math.sqrt(ab * ab + ca * ca) == bc)
+        if (Math.sqrt(bc * bc + ca * ca) == ab) {
+            Xx1 = x2 - x3 + x3 - x1;
+            Yy1 = y2 - y3 + y3 - y1;
+        } else if ((Math.sqrt(bc * bc + ab * ab) == ca)) {
+            Xx1 = x2 - x3 + x1 - x2;
+            Yy1 = y2 - y3 + y1 - y2;
+        } else {
+            Xx1 = x1 - x2 + x3 - x1;
+            Yy1 = y1 - y2 + y3 - y1;
+        }
+
+    }
+    public static void N24(int n,int m){
+        if (n-m==0){
+            System.out.printf("Очки команды 1 = %d%nОчки команды 2 = %d%n",1,1);
+        }
+        else if (n > m){
+            System.out.printf("Очки команды 1 = %d%nОчки команды 2 = %d%n",3,0);
+        }
+        else {
+            System.out.printf("Очки команды 1 = %d%nОчки команды 2 = %d%n",0,3);
+        }
+    }
     public static void main(String[] args) {
         Locale.setDefault(Locale.ROOT);
-        N5(0,0,3,0,0,4);
+        N5(0, 0, 3, 0, 0, 4);
     }
 }
 
