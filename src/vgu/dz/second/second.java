@@ -44,6 +44,16 @@ public class second {
         }
     }
 
+    public static void N3(double x, double y) {
+        double r = Math.sqrt(x * x + y * y);
+        double O = Math.atan(y / x);
+        if (x == 0) {
+            System.out.println("x не может быть равен 0");
+        } else {
+            System.out.printf("r = %.3f%nO = %.3f%n", r, O);
+        }
+    }
+
     public static void N5(double x1, double y1, double x2, double y2, double x3, double y3) {
         double ab = Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));//c
         double bc = Math.sqrt(Math.pow(x2 - x3, 2) + Math.pow(y2 - y3, 2));//a
@@ -103,7 +113,13 @@ public class second {
 
     public static void main(String[] args) {
         Locale.setDefault(Locale.ROOT);
-        N6(1, 5, 4, 2, 8, 6);
+        N3(0, 0);
+        N3(0, 1);
+        N3(1, 1);
+        N3(0, -1);
+        N3(-1, -1);
+        N3(1, -1);
+        N3(-1, 1);
     }
 }
 
