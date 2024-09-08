@@ -35,18 +35,57 @@ public class second {
         if (q <= 0) {
             System.out.printf("m = %.3f%nt = %.3f%n", m, (k + m * 4200 * t) / 4200 / m);
         } else {
-            double q2 = q - 2.3 * 1000000 * m;
+            double q2 = q - 2.3 * 1000_000 * m;
             if (q2 <= 0) {
-                System.out.printf("m = %.3f%nt = %d%n", q2 / 2.3 / 1000000, 100);
-            }
-            else{
+                System.out.printf("m = %.3f%nt = %d%n", q2 / 2.3 / 1000_000, 100);
+            } else {
                 System.out.printf("А дальше не состыковочка, говориться про параметры воды, а тут уже пар%n");
             }
         }
     }
 
+    public static void N5(double x1, double y1, double x2, double y2, double x3, double y3) {
+        double ab = Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));//c
+        double bc = Math.sqrt(Math.pow(x2 - x3, 2) + Math.pow(y2 - y3, 2));//a
+        double ca = Math.sqrt(Math.pow(x3 - x1, 2) + Math.pow(y3 - y1, 2));//b
+        //System.out.println(ab + " " + bc + " " + ca);
+        double ang_ab_bc = Math.acos((ca * ca - bc * bc - ab * ab) / (-1) / bc / ab);//бета
+        double ang_bc_ac = Math.acos((ab * ab - bc * bc - ca * ca) / (-1) / ca / bc);//сигма
+        double ang_ca_ab = Math.acos((bc * bc - ca * ca - ab * ab) / (-1) / ca / ab);//альфа
+        //System.out.println(ang_ab_bc + " " + ang_bc_ac + " " + ang_ca_ab);
+        double min = Math.min(ab, Math.min(bc, ca));
+        double max = Math.max(ab, Math.max(bc, ca));
+        double avg = ab + bc + ca - min - max;
+
+        if (min + avg > max) {
+            String ang,name;
+            if (min == max && max == avg) {
+                name = "равносторонний";
+            } else if ((min == avg && avg != max) || (max == avg && avg != min)) {
+                name = "равнобедренный";
+            }
+            else{
+                name = "разносторонний";
+            }
+            //System.out.println(Math.sqrt(min*min+avg*avg)+ " "+ max*max);
+            if (ang_bc_ac > 90 || ang_ca_ab > 90 || ang_ab_bc > 90){
+                ang = "тупоугольный";
+            }
+            else if (Math.sqrt(min*min+avg*avg) == max){
+                ang = "прямоугольный";
+            }
+            else {
+                ang = "остроугольный";
+            }
+            System.out.printf("Треугольник - %s, %s.",name,ang);
+        } else {
+            System.out.printf("Такой треугольник невозможен%n");
+        }
+    }
+
     public static void main(String[] args) {
         Locale.setDefault(Locale.ROOT);
-        N2(2, 90, 10 * 2 * 4200);
+        N5(0,0,3,0,0,4);
     }
 }
+
