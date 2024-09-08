@@ -81,37 +81,29 @@ public class second {
     }
 
     public static void N6(double x1, double y1, double x2, double y2, double x3, double y3) {
-        double bc = Math.sqrt(Math.pow(x2 - x3, 2) + Math.pow(y2 - y3, 2));//a
-        double ca = Math.sqrt(Math.pow(x3 - x1, 2) + Math.pow(y3 - y1, 2));//b
-        double ab = Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));//c
-        double Xx1, Yy1, Xx2, Yy2;
-        //(Math.sqrt(bc * bc + ab * ab) == ca) || (Math.sqrt(ab * ab + ca * ca) == bc)
-        if (Math.sqrt(bc * bc + ca * ca) == ab) {
-            Xx1 = x2 - x3 + x3 - x1;
-            Yy1 = y2 - y3 + y3 - y1;
-        } else if ((Math.sqrt(bc * bc + ab * ab) == ca)) {
-            Xx1 = x2 - x3 + x1 - x2;
-            Yy1 = y2 - y3 + y1 - y2;
+        if ((x1 - x2) * (x1 - x3) + (y1 - y2) * (y1 - y3) == 0) {
+            System.out.printf("Dx = %.3f%nDy = %.3f%n", x2 - x1 + x3 - x1 + x1, y2 - y1 + y3 - y1 + y1);
+        } else if ((x2 - x3) * (x2 - x1) + (y2 - y3) * (y2 - y1) == 0) {
+            System.out.printf("Dx = %.3f%nDy = %.3f%n", x3 - x2 + x1 - x2 + x2, y3 - y2 + y1 - y2 + y2);
         } else {
-            Xx1 = x1 - x2 + x3 - x1;
-            Yy1 = y1 - y2 + y3 - y1;
+            System.out.printf("Dx = %.3f%nDy = %.3f%n", x3 - x1 + x3 - x2 + x3, y3 - y1 + y3 - y2 + y3);
         }
 
     }
-    public static void N24(int n,int m){
-        if (n-m==0){
-            System.out.printf("Очки команды 1 = %d%nОчки команды 2 = %d%n",1,1);
-        }
-        else if (n > m){
-            System.out.printf("Очки команды 1 = %d%nОчки команды 2 = %d%n",3,0);
-        }
-        else {
-            System.out.printf("Очки команды 1 = %d%nОчки команды 2 = %d%n",0,3);
+
+    public static void N24(int n, int m) {
+        if (n - m == 0) {
+            System.out.printf("Очки команды 1 = %d%nОчки команды 2 = %d%n", 1, 1);
+        } else if (n > m) {
+            System.out.printf("Очки команды 1 = %d%nОчки команды 2 = %d%n", 3, 0);
+        } else {
+            System.out.printf("Очки команды 1 = %d%nОчки команды 2 = %d%n", 0, 3);
         }
     }
+
     public static void main(String[] args) {
         Locale.setDefault(Locale.ROOT);
-        N5(0, 0, 3, 0, 0, 4);
+        N6(1, 5, 4, 2, 8, 6);
     }
 }
 
