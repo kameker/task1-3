@@ -114,6 +114,27 @@ public class second {
             System.out.println("2");
         }
     }
+    public static void N8(double a1,double b1,double c1,double a2,double b2,double c2){
+        double k1 = (-1) * a1/b1;
+        double k2 = (-1) * c1/b1;
+        double k3 = (-1) * a2/b2;
+        double k4 = (-1) * c2/b2;
+        if (k1 == k3 && k2 == k4){
+            System.out.println("Графики параллельны");
+        }
+        else if(k1 == k3){
+            System.out.println("Графики совпадают");
+        }
+        else {
+            double x = (c1*b2-c2*b1) / (a2*b1 - a1*b2);
+            double y = (-1) * a1/b1*x - c1/b1;
+            System.out.printf("Графики пересекаются в точке: %n    x = %.3f%n    y = %.3f%n",x,y);
+        }
+
+    }
+    public static void N9(){
+        
+    }
 
     public static void N24(int n, int m) {
         if (n - m == 0) {
@@ -127,7 +148,7 @@ public class second {
 
     public static void main(String[] args) {
         Locale.setDefault(Locale.ROOT);
-
+        N8(1,2,3,4,5,6);
     }
 }
 
