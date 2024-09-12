@@ -140,7 +140,7 @@ public class second {
         if (A + B <= C || B + C <= A || A + C <= B) {
             return false;
         }
-        if (2 * R == Math.sqrt(
+        if (2 * R <= Math.sqrt(
                 ((-A + B + C) * (A - B + C) * (A + B - C))
                         /
                 (A + B + C))) {
