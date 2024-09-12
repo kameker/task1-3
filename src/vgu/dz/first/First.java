@@ -193,6 +193,7 @@ public class First {
         Scanner scan = new Scanner(System.in);
         Locale.setDefault(Locale.ROOT);
         int a = scan.nextInt();
-        System.out.println(N29(a));
+        int b = scan.nextInt();
+        System.out.println(N19(a,b));
     }
 }

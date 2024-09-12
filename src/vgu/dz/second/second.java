@@ -100,49 +100,53 @@ public class second {
         }
 
     }
-    public static void N7(double x, double y){
-        if (x > 0 && y > 0){
+
+    public static void N7(double x, double y) {
+        if (x > 0 && y > 0) {
             System.out.println("1");
-        }
-        else if (x > 0 && y < 0){
+        } else if (x > 0 && y < 0) {
             System.out.println("4");
-        }
-        else if (x < 0 && y < 0){
+        } else if (x < 0 && y < 0) {
             System.out.println("3");
-        }
-        else if (x < 0 && y > 0){
+        } else if (x < 0 && y > 0) {
             System.out.println("2");
         }
     }
-    public static void N8(double a1,double b1,double c1,double a2,double b2,double c2){
-        double k1 = (-1) * a1/b1;
-        double k2 = (-1) * c1/b1;
-        double k3 = (-1) * a2/b2;
-        double k4 = (-1) * c2/b2;
-        if (k1 == k3 && k2 == k4){
+
+    public static void N8(double a1, double b1, double c1, double a2, double b2, double c2) {
+        double k1 = (-1) * a1 / b1;
+        double k2 = (-1) * c1 / b1;
+        double k3 = (-1) * a2 / b2;
+        double k4 = (-1) * c2 / b2;
+        if (k1 == k3 && k2 == k4) {
             System.out.println("Графики параллельны");
-        }
-        else if(k1 == k3){
+        } else if (k1 == k3) {
             System.out.println("Графики совпадают");
-        }
-        else {
-            double x = (c1*b2-c2*b1) / (a2*b1 - a1*b2);
-            double y = (-1) * a1/b1*x - c1/b1;
-            System.out.printf("Графики пересекаются в точке: %n    x = %.3f%n    y = %.3f%n",x,y);
+        } else {
+            double x = (c1 * b2 - c2 * b1) / (a2 * b1 - a1 * b2);
+            double y = (-1) * a1 / b1 * x - c1 / b1;
+            System.out.printf("Графики пересекаются в точке: %n    x = %.3f%n    y = %.3f%n", x, y);
         }
 
     }
+
     public static Boolean N9(int a, int b, int c, int w, int h) {
         return (a <= w && b <= h) || (b <= w && a <= h) ||
                 (a <= w && c <= h) || (c <= w && a <= h) ||
                 (c <= w && b <= h) || (b <= w && c <= h);
     }
-    public static Boolean N10(double A,double B, double C, double R){
-        if (A+B <= C || B+C <= A || A+C <= B){
+
+    public static Boolean N10(double A, double B, double C, double R) {
+        if (A + B <= C || B + C <= A || A + C <= B) {
             return false;
         }
-
-        return true;
+        if (2 * R == Math.sqrt(
+                ((-A + B + C) * (A - B + C) * (A + B - C))
+                        /
+                (A + B + C))) {
+            return true;
+        }
+        return false;
     }
 
     public static void N24(int n, int m) {
@@ -157,7 +161,7 @@ public class second {
 
     public static void main(String[] args) {
         Locale.setDefault(Locale.ROOT);
-        N8(1,2,3,4,5,6);
+        N8(1, 2, 3, 4, 5, 6);
     }
 }
 
