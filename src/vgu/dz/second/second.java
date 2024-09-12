@@ -148,7 +148,12 @@ public class second {
         }
         return false;
     }
-
+    public static Boolean N11(double C, double R){
+        double A,B;
+        A = Math.sqrt(C*C / 2);
+        B=A;
+        return N10(A,B,C,R);
+    }
     public static void N24(int n, int m) {
         if (n - m == 0) {
             System.out.printf("Очки команды 1 = %d%nОчки команды 2 = %d%n", 1, 1);
