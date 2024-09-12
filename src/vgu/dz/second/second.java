@@ -132,8 +132,16 @@ public class second {
         }
 
     }
-    public static void N9(){
-        
+    public static Boolean N9(int a, int b, int c, int w, int h) {
+        return (a <= w && b <= h) || (b <= w && a <= h) ||
+                (a <= w && c <= h) || (c <= w && a <= h) ||
+                (c <= w && b <= h) || (b <= w && c <= h);
+    }
+    public static Boolean N10(double A,double B, double C, double R){
+        if (A+B <= C || B+C <= A || A+C <= B){
+            return false;
+        }
+        return true;
     }
 
     public static void N24(int n, int m) {

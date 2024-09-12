@@ -3,7 +3,8 @@ package vgu.dz.first;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Main {
+
+public class First {
     public static void N1(double V1, double t1, double V2, double t2) {
         System.out.printf("V3 = %.3f%nt3 = %.3f%n", V1 + V2, (t1 + t2) / 2f);
         // 1.	Смешано V1 литров воды температуры t1 с V2 литрами воды температуры t2.
@@ -191,6 +192,7 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
         Locale.setDefault(Locale.ROOT);
-        System.out.println(N30(1,100,2));
+        int a = scan.nextInt();
+        System.out.println(N29(a));
     }
 }
