@@ -4,7 +4,6 @@ import java.util.Locale;
 
 public class second {
     public static void N1(double a, double b, double c) {
-
         if (b != 0 && c != 0) {
             double D = b * b - 4 * a * c;
             if (D == 0) {
@@ -135,7 +134,6 @@ public class second {
                 (a <= w && c <= h) || (c <= w && a <= h) ||
                 (c <= w && b <= h) || (b <= w && c <= h);
     }
-
     public static Boolean N10(double A, double B, double C, double R) {
         if (A + B <= C || B + C <= A || A + C <= B) {
             return false;
@@ -143,16 +141,10 @@ public class second {
         if (2 * R <= Math.sqrt(
                 ((-A + B + C) * (A - B + C) * (A + B - C))
                         /
-                (A + B + C))) {
+                        (A + B + C))) {
             return true;
         }
         return false;
-    }
-    public static Boolean N11(double C, double R){
-        double A,B;
-        A = Math.sqrt(C*C / 2);
-        B=A;
-        return N10(A,B,C,R);
     }
     public static void N24(int n, int m) {
         if (n - m == 0) {
@@ -163,10 +155,56 @@ public class second {
             System.out.printf("Очки команды 1 = %d%nОчки команды 2 = %d%n", 0, 3);
         }
     }
+    public static void N22(double a1, double b1, double c1, double a2, double b2, double c2) {
+        double p, p1;
+        if (a1 > b1) {
+            p = a1;
+            p1 = b1;
+            b1 = p;
+            a1 = p1;
+        }
+        if (a1 > c1) {
+            p = a1;
+            p1 = c1;
+            c1 = p;
+            a1 = p1;
+        }
+        if (b1 > c1) {
+            p = b1;
+            p1 = c1;
+            c1 = p;
+            b1 = p1;
+        }
+        if (a2 > b2) {
+            p = a2;
+            p1 = b2;
+            b2 = p;
+            a2 = p1;
+        }
+        if (a2 > c2) {
+            p = a2;
+            p1 = c2;
+            c2 = p;
+            a2 = p1;
+        }
+        if (b2 > c2) {
+            p = b2;
+            p1 = c2;
+            c2 = p;
+            b2 = p1;
+        }
 
+        if (a1 < a2 && b1 < b2 && c1 < c2) {
+            System.out.println("Первая коробка помещается во второй");
+        } else if (a1 > a2 && b1 > b2 && c1 > c2) {
+            System.out.println("Вторая коробка помещается в первой");
+        } else {
+            System.out.println("Коробки нельзя разместить одна в другой");
+        }
+
+    }
     public static void main(String[] args) {
         Locale.setDefault(Locale.ROOT);
         N8(1, 2, 3, 4, 5, 6);
     }
 }
-
