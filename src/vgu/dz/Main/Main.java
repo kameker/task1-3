@@ -22,20 +22,15 @@ public class Main {
         Boolean parabolaLeftLittle = pis.pointUnderAndInLineLikeABCx(1, 12, 33);
         if (cirle && !parabolaLeftLittle) {
             System.out.println("Yellow");
-        }
-        else if ((rectangle && parbolaUp && !parabolaLeftLittle) ||(parabolaLeftLittle && parbolaUp) || (parbolaUp && paroblaLeftBig)) {
+        } else if ((rectangle && parbolaUp && !parabolaLeftLittle) || (parabolaLeftLittle && parbolaUp) || (parbolaUp && paroblaLeftBig)) {
             System.out.println("Green");
-        }
-        else if (parabolaLeftLittle && !parbolaUp && !cirle && !paroblaLeftBig){
+        } else if (parabolaLeftLittle && !parbolaUp && !cirle && !paroblaLeftBig) {
             System.out.println("Orange");
-        }
-        else if(paroblaLeftBig && !parbolaUp && !parabolaLeftLittle){
+        } else if ((paroblaLeftBig && !parbolaUp) && !parabolaLeftLittle || (!parbolaUp && !parabolaLeftLittle && !paroblaLeftBig && pis.pointInRectangle(-8,-2,2,2))) {
             System.out.println("Blue");
-        }
-        else if (underLine && !cirle && ! parabolaLeftLittle && !paroblaLeftBig) {
+        } else if (underLine && !cirle && !parabolaLeftLittle && !paroblaLeftBig) {
             System.out.println("Grey");
-        }
-        else {
+        } else {
             System.out.println("White");
         }
     }

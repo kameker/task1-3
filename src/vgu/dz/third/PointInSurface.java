@@ -36,7 +36,7 @@ public class PointInSurface {
         return false;
     }
 
-    public Boolean pointUnderAndInLineLikeABCx(double a, double b, double c) {//находиться ли точка в параболе повёрнутой
+    public Boolean pointUnderAndInLineLikeABCx(double a, double b, double c) {//находиться ли точка в параболе повёрнутой на 90 градусов параболе
         double x = this.x * -1;
         if        (a > 0 && x >= a * this.y * this.y + b * this.y + c) {
             return true;
