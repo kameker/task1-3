@@ -155,44 +155,31 @@ public class second {
             System.out.printf("Очки команды 1 = %d%nОчки команды 2 = %d%n", 0, 3);
         }
     }
+    public static double maxOf3(double a,double b,double c){
+        return Math.max(Math.max(a,b),c);
+    }
+    public static double minOf3(double a,double b,double c){
+        return Math.min(Math.min(a,b),c);
+    }
+    public static double avgOf3(double a,double b,double c){
+        double s = a+b+c;
+        double max = maxOf3(a,b,c);
+        double min = minOf3(a,b,c);
+        return s- max - min;
+    }
     public static void N22(double a1, double b1, double c1, double a2, double b2, double c2) {
         double p, p1;
-        if (a1 > b1) {
-            p = a1;
-            p1 = b1;
-            b1 = p;
-            a1 = p1;
-        }
-        if (a1 > c1) {
-            p = a1;
-            p1 = c1;
-            c1 = p;
-            a1 = p1;
-        }
-        if (b1 > c1) {
-            p = b1;
-            p1 = c1;
-            c1 = p;
-            b1 = p1;
-        }
-        if (a2 > b2) {
-            p = a2;
-            p1 = b2;
-            b2 = p;
-            a2 = p1;
-        }
-        if (a2 > c2) {
-            p = a2;
-            p1 = c2;
-            c2 = p;
-            a2 = p1;
-        }
-        if (b2 > c2) {
-            p = b2;
-            p1 = c2;
-            c2 = p;
-            b2 = p1;
-        }
+        p = a1;
+        p1 = b1;
+        a1 = maxOf3(a1,b1,c1);
+        b1 = maxOf3(a1,b1,c1);
+        c1 = avgOf3(p,p1,c1);
+
+        p = a2;
+        p1 = b2;
+        a2 = maxOf3(a2,b2,c2);
+        b2 = maxOf3(a2,b2,c2);
+        c2 = avgOf3(p,p1,c2);
 
         if (a1 < a2 && b1 < b2 && c1 < c2) {
             System.out.println("Первая коробка помещается во второй");
@@ -205,6 +192,6 @@ public class second {
     }
     public static void main(String[] args) {
         Locale.setDefault(Locale.ROOT);
-        N8(1, 2, 3, 4, 5, 6);
+        N22(1, 2, 3, 4, 5, 6);
     }
 }
