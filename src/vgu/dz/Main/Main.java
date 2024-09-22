@@ -16,6 +16,7 @@ public class Main {
         PointInSurface pis = new PointInSurface(x, y);
         Boolean cirle = pis.pointInCircle(6, -2, 5);
         Boolean rectangle = pis.pointInRectangle(-2, 1, 6, 6);
+        Boolean rectangel2 = pis.pointInRectangle(-8,-2,2,2);
         Boolean parbolaUp = pis.pointUnderAndInLineLikeABC(1, 12, 32);
         Boolean underLine = pis.pointUnderAndInLineLikeKXplusB(0, -2);
         Boolean paroblaLeftBig = pis.pointUnderAndInLineLikeABCx(1f / 8, -0.5, 13f / 2);
@@ -26,9 +27,9 @@ public class Main {
             System.out.println("Green");
         } else if (parabolaLeftLittle && !parbolaUp && !cirle && !paroblaLeftBig) {
             System.out.println("Orange");
-        } else if ((paroblaLeftBig && !parbolaUp) && !parabolaLeftLittle || (!parbolaUp && !parabolaLeftLittle && !paroblaLeftBig && pis.pointInRectangle(-8,-2,2,2))) {
+        } else if ((paroblaLeftBig && !parbolaUp) && !parabolaLeftLittle || (!parbolaUp && !parabolaLeftLittle && !paroblaLeftBig && rectangel2)) {
             System.out.println("Blue");
-        } else if (underLine && !cirle && !parabolaLeftLittle && !paroblaLeftBig) {
+        } else if (underLine && !cirle && !parabolaLeftLittle && !paroblaLeftBig && !parbolaUp) {
             System.out.println("Grey");
         } else {
             System.out.println("White");
