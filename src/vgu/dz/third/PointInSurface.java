@@ -3,7 +3,7 @@ package vgu.dz.third;
 public class PointInSurface {
     double x, y;
 
-    public PointInSurface(int x, int y) {
+    public PointInSurface(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -28,24 +28,24 @@ public class PointInSurface {
         }
         return false;
     }
-    public Boolean pointUnderAndInLineLikeABC(double a, double b,double c) {//действительно если точка находиться между ветвей параболы
-        if (this.x*(a*this.x + b) + c <= this.y) {
+
+    public Boolean pointUnderAndInLineLikeABC(double a, double b, double c) {//действительно если точка находиться между ветвей параболы
+        if (this.x * (a * this.x + b) + c <= this.y) {
             return true;
         }
         return false;
     }
-    public Boolean pointUnderAndInLineLikeABCx(double a,double b,double c){
-        double p = this.x;
-        double p2 = this.y;
-        this.y = p;
-        this.x = p2;
-        Boolean arg = pointUnderAndInLineLikeABC(a,b,c);
-        p = this.x;
-        p2 = this.y;
-        this.y = p;
-        this.x = p2;
-        return arg;
+
+    public Boolean pointUnderAndInLineLikeABCx(double a, double b, double c) {//находиться ли точка в параболе повёрнутой
+        double x = this.x * -1;
+        if        (a > 0 && x >= a * this.y * this.y + b * this.y + c) {
+            return true;
+        } else if (a < 0 && x <= a * this.y * this.y + b * this.y + c) {
+            return true;
+        }
+        return false;
     }
+
     public Boolean pointInRectangle(double shiftx, double shifty, double width, double height) {
         width /= 2;
         height /= 2;

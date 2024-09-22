@@ -1,8 +1,8 @@
 package vgu.dz.Main;
 
-import java.sql.SQLOutput;
 import java.util.Locale;
 import java.util.Scanner;
+
 import vgu.dz.third.PointInSurface;
 
 public class Main {
@@ -11,12 +11,32 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
         Locale.setDefault(Locale.ROOT);
-        int x = scan.nextInt();
-        int y = scan.nextInt();
-        PointInSurface pis = new PointInSurface(x,y);
-        //System.out.println(pis.pointUnderAndInLineLikeKXplusB(2f/5,3));
-        //System.out.println(pis.pointInRectangle(-2,1,6,6));
-        //System.out.println(pis.pointUnderAndInLineLikeABC(2,3,2));
-        System.out.println(pis.pointUnderAndInLineLikeABCx(7f/8,+-41f/4,27));
+        double x = scan.nextDouble();
+        double y = scan.nextDouble();
+        PointInSurface pis = new PointInSurface(x, y);
+        Boolean cirle = pis.pointInCircle(6, -2, 5);
+        Boolean rectangle = pis.pointInRectangle(-2, 1, 6, 6);
+        Boolean parbolaUp = pis.pointUnderAndInLineLikeABC(1, 12, 32);
+        Boolean underLine = pis.pointUnderAndInLineLikeKXplusB(0, -2);
+        Boolean paroblaLeftBig = pis.pointUnderAndInLineLikeABCx(1f / 8, -0.5, 13f / 2);
+        Boolean parabolaLeftLittle = pis.pointUnderAndInLineLikeABCx(1, 12, 33);
+        if (cirle && !parabolaLeftLittle) {
+            System.out.println("Yellow");
+        }
+        else if ((rectangle && parbolaUp && !parabolaLeftLittle) ||(parabolaLeftLittle && parbolaUp) || (parbolaUp && paroblaLeftBig)) {
+            System.out.println("Green");
+        }
+        else if (parabolaLeftLittle && !parbolaUp && !cirle && !paroblaLeftBig){
+            System.out.println("Orange");
+        }
+        else if(paroblaLeftBig && !parbolaUp && !parabolaLeftLittle){
+            System.out.println("Blue");
+        }
+        else if (underLine && !cirle && ! parabolaLeftLittle && !paroblaLeftBig) {
+            System.out.println("Grey");
+        }
+        else {
+            System.out.println("White");
+        }
     }
 }
