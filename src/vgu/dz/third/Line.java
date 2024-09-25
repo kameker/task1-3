@@ -1,10 +1,15 @@
 package vgu.dz.third;
 
 public class Line {
-    public double a,b,c;
-    public Line(double a,double b,double c){
-        this.a = a;
+    public double k,b;
+    public Line(double k,double b){
+        this.k = k;
         this.b = b;
-        this.c = c;
+    }
+    public Boolean pointUnderAndInLineLike(double xPoint, double yPoint) {//действительно если точка находиться между ветвей параболы
+        if (this.k * xPoint + b >= yPoint) {
+            return true;
+        }
+        return false;
     }
 }

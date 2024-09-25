@@ -8,4 +8,12 @@ public class Rectangle {
         this.height = height;
         this.width = width;
     }
+    public Boolean pointInRectangle(double xPoint, double yPoint) {
+        this.width /= 2;
+        this.height /= 2;
+        if ((this.centerX - this.width <= xPoint && xPoint <= this.centerX + this.width) && (yPoint - this.height <= yPoint && yPoint <= this.centerY + this.height)) {
+            return true;
+        }
+        return false;
+    }
 }

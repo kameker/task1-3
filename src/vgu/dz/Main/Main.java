@@ -3,11 +3,8 @@ package vgu.dz.Main;
 import java.util.Locale;
 import java.util.Scanner;
 
-import vgu.dz.third.PointInSurface;
-import vgu.dz.third.SimpleColor;
-import vgu.dz.third.Circle;
-import vgu.dz.third.Rectangle;
-import vgu.dz.third.Line;
+import vgu.dz.third.*;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -16,23 +13,23 @@ public class Main {
         Locale.setDefault(Locale.ROOT);
         double x = scan.nextDouble();
         double y = scan.nextDouble();
-        PointInSurface pis = new PointInSurface(x, y);
+        Point point = new Point(x,y);
 
-        Circle krug = new Circle(6,-2,5);
+        Circle circle = new Circle(6,-2,5);
         Rectangle rectangleBig = new Rectangle(-2, 1, 6, 6);
         Rectangle rectangleLittle = new Rectangle(-8,-2,2,2);
-        Line parabolaUp = new Line(1, 12, 32);
-        Line line = new Line(0,0, -2);
-        Line parabolaLeftLittle = new Line(1, 12, 33);
-        Line paroblaLeftBig = new Line(1f / 8, -0.5, 13f / 2);
+        Parabola parabolaUp = new Parabola(1, 12, 32);
+        Line line = new Line(0, -2);
+        HorizontalParabola parabolaLeftLittle = new HorizontalParabola(1, 12, 33);
+        HorizontalParabola paroblaLeftBig = new HorizontalParabola(1f / 8, -0.5, 13f / 2);
 
-        Boolean inCirle = pis.pointInCircle(krug.centerX, krug.centerY, krug.radius);
-        Boolean inRectangleBig = pis.pointInRectangle(rectangleBig.centerX, rectangleBig.centerY, rectangleBig.width, rectangleBig.height);
-        Boolean inRectangelLittle = pis.pointInRectangle(rectangleLittle.centerX,rectangleLittle.centerY,rectangleLittle.width,rectangleLittle.height);
-        Boolean inParbolaUp = pis.pointUnderAndInLineLikeABC(parabolaUp.a, parabolaUp.b, parabolaUp.c);
-        Boolean inLine = pis.pointUnderAndInLineLikeKXplusB(line.b, line.c);
-        Boolean inParoblaLeftBig = pis.pointUnderAndInLineLikeABCx(paroblaLeftBig.a, paroblaLeftBig.b, paroblaLeftBig.c);
-        Boolean inParabolaLeftLittle = pis.pointUnderAndInLineLikeABCx(parabolaLeftLittle.a, parabolaLeftLittle.b, parabolaLeftLittle.c);
+        Boolean inCirle = circle.pointInCircle(point.x, point.y);
+        Boolean inRectangleBig = rectangleBig.pointInRectangle(point.x, point.y);
+        Boolean inRectangelLittle = rectangleLittle.pointInRectangle(point.x, point.y);
+        Boolean inParbolaUp = parabolaUp.pointInParabola(point.x, point.y);
+        Boolean inLine = line.pointUnderAndInLineLike(point.x, point.y);
+        Boolean inParoblaLeftBig = paroblaLeftBig.pointInHorizontalParabola(point.x, point.y);
+        Boolean inParabolaLeftLittle = parabolaLeftLittle.pointInHorizontalParabola(point.x, point.y);
 
         if (inCirle && !inParabolaLeftLittle) {
             System.out.println(SimpleColor.YELLOW);
