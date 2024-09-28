@@ -1,5 +1,5 @@
 package vgu.dz.third;
-import vgu.dz.third.MyMath;
+import vgu.dz.myfuncs.MyMath;
 
 public class Circle {
     public double centerX,centerY,radius;
