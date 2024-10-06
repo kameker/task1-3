@@ -1,16 +1,13 @@
 package vgu.dz.Main;
 
-import java.util.Locale;
-import java.util.Scanner;
-
-import vgu.dz.fourth.Palindrome;
+import vgu.dz.fifth.Mountain;
 
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Palindrome pal4 = new Palindrome(200_000_000_0);
-        System.out.println(pal4.megaNoePalindrom());
+        Mountain m = new Mountain(4);
+        m.drawMountain();
     }
 }

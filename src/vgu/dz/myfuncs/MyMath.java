@@ -26,12 +26,12 @@ public class MyMath {
         }
         return r;
     }
-
+    public static long getUpGranica(long n1){
+        return n1 == 1 ? 0 : (long) (Math.pow(10,n1-1) + f9(n1) + 8);
+    }
     public static long halfPalindromtoFull(long n1,long k,long d){
-        return (long) (n1 * Math.pow(10,lenOfNumber(n1)-1)) + reverseNumber(n1/d);
+        return (long) (n1 * Math.pow(10,lenOfNumber(n1)-k)) + reverseNumber(n1/d);
         //        100_000 * 10^5 +
     }
-    public static long f198(long n1){
-        return n1 == 1 ? 0 : (long) (1 * Math.pow(10,n1-1) + f9(n1) + 8);
-    }
+
 }

@@ -37,7 +37,7 @@ public class Palindrome {
         }
         n-=1;
         long lenN = lenOfNumber(n);
-        long upGranica = f198(lenN);
+        long upGranica = getUpGranica(lenN);
         long downGranica = upGranica / 10 - 1;
         if (n > upGranica){
             long copyUpGranica = upGranica;
