@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Mountain m = new Mountain(4);
+        Mountain m = new Mountain(99);
         m.drawMountain();
     }
 }
