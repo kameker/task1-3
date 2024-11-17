@@ -4,13 +4,13 @@ package vgu.dz.sixth;
 import static vgu.dz.myfuncs.MyMath.supFactorial;
 
 public class Series {
-    public int n;
+    private int n;
     public double e;
     public double ediv10;
     public double last = 0;
-    public double sumAllElements = 0;
-    public double sumElementsBiggerThanE = 0;
-    public double sumElementsBiggerThanEdiv10 = 0;
+    private double sumAllElements = 0;
+    private double sumElementsBiggerThanE = 0;
+    private double sumElementsBiggerThanEdiv10 = 0;
     public Series(int n, double e){
         this.n = n;
         this.e = e;
@@ -30,5 +30,14 @@ public class Series {
     }
     public double nElem(int n, double Anm1, int x){
         return Anm1 + Math.pow(-1,n)*supFactorial(n,1)/supFactorial(n,2);
+    }
+    public double getSumAllElements(){
+        return this.sumAllElements;
+    }
+    public double getSumElementsBiggerThanE(){
+        return this.sumElementsBiggerThanE;
+    }
+    public double getSumElementsBiggerThanEdiv10(){
+        return this.sumElementsBiggerThanEdiv10;
     }
 }

@@ -1,18 +1,16 @@
 package vgu.dz.Main;
 
-import vgu.dz.fifth.Mountain;
-import vgu.dz.myfuncs.MyMath;
-import vgu.dz.sixth.Series;
+
+
+import static vgu.dz.seventh.seventh.solution;
 
 
 public class Main {
-
     public static void main(String[] args) {
-        Series s = new Series(10,10);
-        s.sumN();
-        System.out.printf("Сумма всех элементов = %.10f%n",s.sumAllElements);
-        System.out.printf("Сумма всех элементов больше чем %.4f = %.10f%n",s.e,s.sumElementsBiggerThanE);
-        System.out.printf("Сумма всех элементов больше чем %.4f = %.10f%n",s.ediv10,s.sumElementsBiggerThanEdiv10);
-
+        int[] arr = {-3, 7, 3, 4, 8, 4, 8, 4, 7, 3, 4, 8, 0, 6, -1, 4, 7, 3, 3};
+        int n = 3;
+        int result = solution(arr, n);
+        System.out.println("Индекс первого элемента: " + result);
     }
 }
+

@@ -1,17 +1,14 @@
 package vgu.dz.fifth;
 
 public class Mountain {
-    public int k;
+    int k;
 
     public Mountain(int k) {
         this.k = k;
     }
-
-
-//                /\
-//         /\    //\\    /\
-//    /\  //\\  ///\\\  //\\  /\
-// /\//\\///\\\////\\\\///\\\//\\/\
+    public Mountain() {
+        this.k = 2;
+    }
 
     public void drawMountain() {
         for (int i = 0; i < this.k; i++) {
@@ -35,19 +32,19 @@ public class Mountain {
         }
     }
 
-    public static void drawSpace(int k1) {
+    private static void drawSpace(int k1) {
         for (int i = 0; i < k1; i++) {
             System.out.print(" ");
         }
     }
 
-    public static void drawSlash(int k1) {
+    private static void drawSlash(int k1) {
         for (int i = 0; i < k1; i++) {
             System.out.print("/");
         }
     }
 
-    public static void drawReSlash(int k1) {
+    private static void drawReSlash(int k1) {
         for (int i = 0; i < k1; i++) {
             System.out.print("\\");
         }
