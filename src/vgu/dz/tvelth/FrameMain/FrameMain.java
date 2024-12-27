@@ -1,15 +1,13 @@
 package vgu.dz.tvelth.FrameMain;
 
 
-
-
 import vgu.dz.tvelth.DrawRec;
 import vgu.dz.myfuncs.MyMath;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.util.Objects;
 
 
 public class FrameMain extends JFrame {
@@ -20,6 +18,11 @@ public class FrameMain extends JFrame {
     private JTextField sizeTextField;
     private JPanel panel;
     private JLabel depthRecursionLabel;
+    private JRadioButton randomColorButton;
+    private JRadioButton xLines;
+    private JTextField shiftTextField;
+    private JTextField radTextField;
+    private JTextField radiusText;
 
     public FrameMain() {
         this.setTitle("Рисовалка");
@@ -31,15 +34,25 @@ public class FrameMain extends JFrame {
         drawButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                BufferedImage image = DrawRec.drawRecursion(MyMath.isNumber(sizeTextField.getText())  ? Integer.parseInt(sizeTextField.getText()) : 3);
+                System.out.println((randomColorButton.isSelected()));
+                BufferedImage image = DrawRec.drawRecursion(MyMath.isNumber(sizeTextField.getText()) ? Integer.parseInt(sizeTextField.getText()) : 6,
+                        randomColorButton.isSelected(), xLines.isSelected(),
+                        MyMath.isNumber(radiusText.getText()) ? Integer.parseInt(radiusText.getText()) : 50,
+                        MyMath.isNumber(shiftTextField.getText()) ? Double.parseDouble(shiftTextField.getText()) : 1.5,
+                        MyMath.isNumber(radTextField.getText()) ? Double.parseDouble(radTextField.getText()) : 2.5);
                 DrawRec.setImage(image, picLabel);
+                drawButton.setText("Обновить изображение");
             }
         });
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                BufferedImage image = DrawRec.drawRecursion(MyMath.isNumber(sizeTextField.getText())  ? Integer.parseInt(sizeTextField.getText()) : 3);
-                DrawRec.savePicture("out.png",image);
+                BufferedImage image = DrawRec.drawRecursion(MyMath.isNumber(sizeTextField.getText()) ? Integer.parseInt(sizeTextField.getText()) : 6,
+                        randomColorButton.isSelected(), xLines.isSelected(),
+                        MyMath.isNumber(radiusText.getText()) ? Integer.parseInt(radiusText.getText()) : 50,
+                        MyMath.isNumber(shiftTextField.getText()) ? Integer.parseInt(shiftTextField.getText()) : 1.5,
+                        MyMath.isNumber(radTextField.getText()) ? Integer.parseInt(radTextField.getText()) : 2.5);
+                DrawRec.savePicture("out.png", image);
             }
         });
     }
@@ -59,7 +72,7 @@ public class FrameMain extends JFrame {
      * @noinspection ALL
      */
     private void $$$setupUI$$$() {
-        }
+    }
 
     /**
      * @noinspection ALL
